@@ -26,27 +26,49 @@ function convertervalues() {
         }).format(inseriValor / euro)
     }
 
-    
-        if (Selectpaiz.value == "libra") {
-            resultadofinal.innerHTML = new Intl.NumberFormat("lb", {
-                style: "currency",
-                currency: "GBP"
-            }).format(inseriValor / libra)
-        }
-    
+
+    if (Selectpaiz.value == "libra") {
+        resultadofinal.innerHTML = new Intl.NumberFormat("lb", {
+            style: "currency",
+            currency: "GBP"
+        }).format(inseriValor / libra)
+    }
+
     resultadovalor.innerHTML = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL"
     }).format(inseriValor)
 
-    console.log(Selectpaiz.value)
-    console.log(resultadofinal)
+
+}
+
+function chang() {
+    const moeda = document.getElementById("moeda")
+    const imgfinal = document.getElementById("imgfinal")
 
 
 
+    if (Selectpaiz.value == "dolar") {
+        moeda.innerHTML = "Dólar Americano"
+        imgfinal.src = "./assets/0bd85ff79a7dabec33201d95eb1a05fdea133971.png"
+    }
 
+    if (Selectpaiz.value == "libra") {
+        moeda.innerHTML = "libra"
+        imgfinal.src = "./assets/logo.gif"
+    }
+
+    if (Selectpaiz.value == "euro") {
+        moeda.innerHTML = "Euro"
+        imgfinal.src = "./assets/logo.gif"
+    }
+    convertervalues()
 
 }
 
 
+
+
+Selectpaiz.addEventListener("change", chang);
 converterButton.addEventListener("click", convertervalues);
+
