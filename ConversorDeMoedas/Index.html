@@ -15,14 +15,18 @@
     <main class="container">
         <label class="select">
             Conversor <b>de</b>
-            <select class="Selectoption">
-                <option class="option" value="Real">R$ Real Brasileiro</option>
+            <select id="Selectpaizv1" class="Selectoption">
+                <option value="real">R$ Real Brasileiro</option>
+                <option value="dolar">US$ Dólar Americano</option>
+                <option value="euro">€ Euro Europeu</option>
+                <option value="libra">£ Libra Esterlina</option>
             </select>
         </label>
         <h1> </h1>
         <label class="select">
             Conversor <b>de</b>
-            <select id="Selectpaiz" class="Selectoption">
+            <select id="Selectpaizv2" class="Selectoption">
+                <option value="real">R$ Real Brasileiro</option>
                 <option value="dolar">US$ Dólar Americano</option>
                 <option value="euro">€ Euro Europeu</option>
                 <option value="libra">£ Libra Esterlina</option>
@@ -38,18 +42,18 @@
 
         <section class="resultado">
             <div class="divResultado">
-                <img src="./assets/fcf15cc7ea5a0aa77537e7939a6742b588d600a6.png" alt="Real Brasileiro"
-                    class="imgpaiz" />
-                <p class="moeda">Real</p>
-                <p id="resultadovalor" class="resultadovalor">R$ 0,00</p>
+                <img id="imgfinalv1" src="./assets/fcf15cc7ea5a0aa77537e7939a6742b588d600a6.png" class="imgpaiz" />
+                <p id="moedav1" class="moeda">Real</p>
+                <p id="resultadoUser" class="resultadovalor">R$ 0,00</p>
             </div>
 
             <img class="indicador" src="./assets/Vector.png" />
 
             <div class="divResultado">
-                <img id="imgfinal" class="imgpaiz" src="./assets/0bd85ff79a7dabec33201d95eb1a05fdea133971.png"
-                    alt="Dólar Americano" />
-                <p id="moeda" class="moeda">Dólar</p>
+
+                <img id="imgfinalv2" class="imgpaiz" src="./assets/0bd85ff79a7dabec33201d95eb1a05fdea133971.png" />
+
+                <p id="moedav2" class="moeda">Dólar</p>
                 <p id="resultadofinal" class="resultadovalor">US$ 0,00</p>
             </div>
 

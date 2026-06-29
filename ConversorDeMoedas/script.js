@@ -1,12 +1,25 @@
+/*
 function convertervalues() {
 
     const converterButton = document.getElementById("converterButton");
-    const Selectpaiz = document.getElementById("Selectpaiz")
 
-    const resultadovalor = document.getElementById("resultadovalor");
+    const Selectpaizv1 = document.getElementById("Selectpaizv1")
+    const Selectpaizv2 = document.getElementById("Selectpaizv2")
+
+    const resultadoUser = document.getElementById("resultadoUser");
     const resultadofinal = document.getElementById("resultadofinal");
 
+
     const inseriValor = document.getElementById("inseriValor").value
+
+
+
+
+
+
+
+
+
 
     const dolar = 5.2;
     const libra = 7.5;
@@ -67,8 +80,17 @@ function chang() {
 }
 
 
-
-
 Selectpaiz.addEventListener("change", chang);
 converterButton.addEventListener("click", convertervalues);
 
+*/
+
+const Selectpaizv1 = document.getElementById("Selectpaizv1")
+
+Selectpaizv1.addEventListener("change", test1);
+
+function test1() {
+
+    console.log(Selectpaizv1.value)
+
+} 
