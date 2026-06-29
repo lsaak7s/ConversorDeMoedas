@@ -27,34 +27,123 @@ function paizv1Select() {
 
     console.log(Selectpaizv1.value)
 
-}
 
+
+    function convertervalues() {
+
+        /* to replace Name & IMG*/
+
+        if (Selectpaizv2.value === "dolar") {
+            moedav2.innerHTML = "Dólar Americano"
+            imgfinalv2.src = "./assets/0bd85ff79a7dabec33201d95eb1a05fdea133971.png"
+        }
+
+        if (Selectpaizv2.value === "libra") {
+            moedav2.innerHTML = "libra"
+            imgfinalv2.src = "./assets/logo.gif"
+        }
+
+        if (Selectpaizv2.value === "euro") {
+            moedav2.innerHTML = "Euro"
+            imgfinalv2.src = "./assets/logo.gif"
+        }
+        if (Selectpaizv2.value === "real") {
+            moedav2.innerHTML = "real"
+            imgfinalv2.src = "./assets/logo.gif"
+        }
+
+
+
+        const dolar = 5.19;
+        const libra = 6.88;
+        const euro = 5.93;
+        const real = 1.00;
+
+        const inseriValor = document.getElementById("inseriValor").value
+        const resultadoUser = document.getElementById("resultadoinUser")
+        const resultadofinal = document.getElementById("resultadofinal")
+
+        resultadoUser.innerHTML = inseriValor;
+
+
+        console.log(inseriValor)
+        console.log(Selectpaizv2.value)
+
+
+        if (Selectpaizv2.value === "real") {
+            resultadofinal.innerHTML = new Intl.NumberFormat("pt-BR", {
+                style: "currency",
+                currency: "R$"
+            }).format(inseriValor / real)
+        }
+
+
+        if (Selectpaizv2.value === "dolar") {
+            resultadofinal.innerHTML = new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD"
+            }).format(inseriValor / dolar)
+        }
+
+        if (Selectpaizv2.value === "euro") {
+            resultadofinal.innerHTML = new Intl.NumberFormat("de-DE", {
+                style: "currency",
+                currency: "EUR"
+            }).format(inseriValor / euro)
+        }
+
+
+        if (Selectpaizv2.value === "libra") {
+            resultadofinal.innerHTML = new Intl.NumberFormat("lb", {
+                style: "currency",
+                currency: "GBP"
+            }).format(inseriValor / libra)
+        }
+
+
+
+
+    }
+
+
+    const Selectpaizv2 = document.getElementById("Selectpaizv2")
+
+    Selectpaizv2.addEventListener("change", convertervalues)
+
+    converterButton.addEventListener("click", convertervalues);
+
+
+
+
+
+}
+/*
 const Selectpaizv2 = document.getElementById("Selectpaizv2")
 
-Selectpaizv2.addEventListener("change", convertervalues);
+Selectpaizv2.addEventListener("change", convertervalues)
 
 converterButton.addEventListener("click", convertervalues);
-
-
+*/
+/*
 function convertervalues() {
 
-    /* to replace Name & IMG*/
+     to replace Name & IMG
 
-    if (Selectpaizv2.value == "dolar") {
+    if (Selectpaizv2.value === "dolar") {
         moedav2.innerHTML = "Dólar Americano"
         imgfinalv2.src = "./assets/0bd85ff79a7dabec33201d95eb1a05fdea133971.png"
     }
 
-    if (Selectpaizv2.value == "libra") {
+    if (Selectpaizv2.value === "libra") {
         moedav2.innerHTML = "libra"
         imgfinalv2.src = "./assets/logo.gif"
     }
 
-    if (Selectpaizv2.value == "euro") {
+    if (Selectpaizv2.value === "euro") {
         moedav2.innerHTML = "Euro"
         imgfinalv2.src = "./assets/logo.gif"
     }
-    if (Selectpaizv2.value == "real") {
+    if (Selectpaizv2.value === "real") {
         moedav2.innerHTML = "real"
         imgfinalv2.src = "./assets/logo.gif"
     }
@@ -71,8 +160,13 @@ function convertervalues() {
     const resultadofinal = document.getElementById("resultadofinal")
 
     resultadoUser.innerHTML = inseriValor;
+
+
     console.log(inseriValor)
-    if (Selectpaizv2.value == "real") {
+    console.log(Selectpaizv2.value)
+
+
+    if (Selectpaizv2.value === "real") {
         resultadofinal.innerHTML = new Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "R$"
@@ -80,14 +174,14 @@ function convertervalues() {
     }
 
 
-    if (Selectpaizv2.value == "dolar") {
+    if (Selectpaizv2.value === "dolar") {
         resultadofinal.innerHTML = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD"
         }).format(inseriValor / dolar)
     }
 
-    if (Selectpaizv2.value == "euro") {
+    if (Selectpaizv2.value === "euro") {
         resultadofinal.innerHTML = new Intl.NumberFormat("de-DE", {
             style: "currency",
             currency: "EUR"
@@ -95,7 +189,7 @@ function convertervalues() {
     }
 
 
-    if (Selectpaizv2.value == "libra") {
+    if (Selectpaizv2.value === "libra") {
         resultadofinal.innerHTML = new Intl.NumberFormat("lb", {
             style: "currency",
             currency: "GBP"
@@ -105,7 +199,7 @@ function convertervalues() {
 
 
 
-}
+}*/
 
 
 
