@@ -1,77 +1,66 @@
 <!-- Conversor de Moedas -->
 <!doctype html>
 <html lang="pt-br">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <title>Conversor de Moedas</title>
-  </head>
+</head>
 
-  <body class="all">
-    <img
-      class="logo"
-      src="./assets/logo.gif"
-      alt="Logo do Conversor de Moedas" />
+<body class="all">
+    <img class="logo" src="./assets/logo.gif" alt="Logo do Conversor de Moedas" />
 
     <main class="container">
-      <label class="select">
-        Conversor <b>de</b>
-        <select id="Selectpaizv1" class="Selectoption">
-          <option value="real">R$ Real Brasileiro</option>
-          <option value="dolar">US$ Dólar Americano</option>
-          <option value="euro">€ Euro Europeu</option>
-          <option value="libra">£ Libra Esterlina</option>
-        </select>
-      </label>
-      <h1></h1>
-      <label class="select">
-        Conversor <b>de</b>
-        <select id="Selectpaizv2" class="Selectoption">
-          <option value="real">R$ Real Brasileiro</option>
-          <option value="dolar">US$ Dólar Americano</option>
-          <option value="euro">€ Euro Europeu</option>
-          <option value="libra">£ Libra Esterlina</option>
-        </select>
-      </label>
+        <label class="select">
+            Conversor <b>de</b>
+            <select id="Selectpaizv1" class="Selectoption">
+                <option value="real">R$ Real Brasileiro</option>
+                <option value="dolar">US$ Dólar Americano</option>
+                <option value="euro">€ Euro Europeu</option>
+                <option value="libra">£ Libra Esterlina</option>
+            </select>
+        </label>
+        <h1></h1>
+        <label class="select">
+            Conversor <b>de</b>
+            <select id="Selectpaizv2" class="Selectoption">
+                <option value="real">R$ Real Brasileiro</option>
+                <option value="dolar">US$ Dólar Americano</option>
+                <option value="euro">€ Euro Europeu</option>
+                <option value="libra">£ Libra Esterlina</option>
+            </select>
+        </label>
 
-      <label class="valor">
-        Valor:
-        <input
-          id="inseriValor"
-          class="inseriValor"
-          type="number"
-          placeholder=" R$ 10.000.00" />
-      </label>
+        <label class="valor">
+            Valor:
+            <input id="inseriValor" class="inseriValor" type="number" placeholder=" R$ 10.000.00" />
+        </label>
 
-      <button id="converterButton" class="converterButton">Converter</button>
+        <button id="converterButton" class="converterButton">Converter</button>
 
-      <section class="resultado">
-        <div class="divResultado">
-          <img
-            id="imgfinalv1"
-            src="./assets/fcf15cc7ea5a0aa77537e7939a6742b588d600a6.png"
-            class="imgpaiz" />
-          <p id="moedav1" class="moeda">Real</p>
-          <p id="resultadoUser" class="resultadovalor">R$ 0,00</p>
-        </div>
+        <section class="resultado">
+            <div class="divResultado">
+                <img id="imgfinalv1" src="./assets/fcf15cc7ea5a0aa77537e7939a6742b588d600a6.png" class="imgpaiz" />
+                <p id="moedav1" class="moeda">Real</p>
+                <p id="resultadoinUser" class="resultadovalor">R$ 0,00</p>
+            </div>
 
-        <img class="indicador" src="./assets/Vector.png" />
+            <img class="indicador" src="./assets/Vector.png" />
 
-        <div class="divResultado">
-          <img
-            id="imgfinalv2"
-            class="imgpaiz"
-            src="./assets/0bd85ff79a7dabec33201d95eb1a05fdea133971.png" />
+            <div class="divResultado">
+                <img id="imgfinalv2" class="imgpaiz" src="./assets/0bd85ff79a7dabec33201d95eb1a05fdea133971.png" />
 
-          <p id="moedav2" class="moeda">Dólar</p>
-          <p id="resultadofinal" class="resultadovalor">US$ 0,00</p>
-        </div>
-      </section>
+                <p id="moedav2" class="moeda">Dólar</p>
+                <p id="resultadofinal" class="resultadovalor">US$ 0,00</p>
+            </div>
+        </section>
     </main>
-  </body>
+</body>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
+
 </html>
 
 <!-- <div>
