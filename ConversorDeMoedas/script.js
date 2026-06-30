@@ -1,21 +1,20 @@
 const Selectpaizv1 = document.getElementById("Selectpaizv1")
 
-Selectpaizv1.addEventListener("change", paizv1Select);
-
-converterButton.addEventListener("click", paizv1Select);
-
 function paizv1Select() {
 
+
+    Selectpaizv1.addEventListener("change", paizv1Select);
+
+    converterButton.addEventListener("click", paizv1Select);
+    const origem = Selectpaizv1.value;
     if (Selectpaizv1.value == "dolar") {
         moedav1.innerHTML = "Dólar Americano"
         imgfinalv1.src = "./assets/0bd85ff79a7dabec33201d95eb1a05fdea133971.png"
     }
-
     if (Selectpaizv1.value == "libra") {
         moedav1.innerHTML = "libra"
         imgfinalv1.src = "./assets/logo.gif"
     }
-
     if (Selectpaizv1.value == "euro") {
         moedav1.innerHTML = "Euro"
         imgfinalv1.src = "./assets/logo.gif"
@@ -25,98 +24,88 @@ function paizv1Select() {
         imgfinalv1.src = "./assets/logo.gif"
     }
 
-    console.log(Selectpaizv1.value)
+}
+const taxas = {
+    real: 1,
+    dolar: 5.19,
+    euro: 5.93,
+    libra: 6.88,
+}
+const Selectpaizv2 = document.getElementById("Selectpaizv2")
+
+function convertervalues(taxas, Selectpaizv1, Selectpaizv2) {
 
 
 
-    function convertervalues() {
+    const destino = Selectpaizv2.value;
+    const valor = Selectpaizv1(inseriValor.value);
 
-        /* to replace Name & IMG*/
+    const valorEmReal = valor * taxas[origem];
+    const resultado = valorEmReal / taxas[destino];
 
-        if (Selectpaizv2.value === "dolar") {
-            moedav2.innerHTML = "Dólar Americano"
-            imgfinalv2.src = "./assets/0bd85ff79a7dabec33201d95eb1a05fdea133971.png"
-        }
-
-        if (Selectpaizv2.value === "libra") {
-            moedav2.innerHTML = "libra"
-            imgfinalv2.src = "./assets/logo.gif"
-        }
-
-        if (Selectpaizv2.value === "euro") {
-            moedav2.innerHTML = "Euro"
-            imgfinalv2.src = "./assets/logo.gif"
-        }
-        if (Selectpaizv2.value === "real") {
-            moedav2.innerHTML = "real"
-            imgfinalv2.src = "./assets/logo.gif"
-        }
+    const inseriValor = document.getElementById("inseriValor").value
+    const resultadoUser = document.getElementById("resultadoinUser")
+    const resultadofinal = document.getElementById("resultadofinal")
 
 
-
-        const dolar = 5.19;
-        const libra = 6.88;
-        const euro = 5.93;
-        const real = 1.00;
-
-        const inseriValor = document.getElementById("inseriValor").value
-        const resultadoUser = document.getElementById("resultadoinUser")
-        const resultadofinal = document.getElementById("resultadofinal")
-
-        resultadoUser.innerHTML = inseriValor;
-
-
-        console.log(inseriValor)
-        console.log(Selectpaizv2.value)
-
-
-        if (Selectpaizv2.value === "real") {
-            resultadofinal.innerHTML = new Intl.NumberFormat("pt-BR", {
-                style: "currency",
-                currency: "R$"
-            }).format(inseriValor / real)
-        }
-
-
-        if (Selectpaizv2.value === "dolar") {
-            resultadofinal.innerHTML = new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD"
-            }).format(inseriValor / dolar)
-        }
-
-        if (Selectpaizv2.value === "euro") {
-            resultadofinal.innerHTML = new Intl.NumberFormat("de-DE", {
-                style: "currency",
-                currency: "EUR"
-            }).format(inseriValor / euro)
-        }
-
-
-        if (Selectpaizv2.value === "libra") {
-            resultadofinal.innerHTML = new Intl.NumberFormat("lb", {
-                style: "currency",
-                currency: "GBP"
-            }).format(inseriValor / libra)
-        }
-
-
-
-
-    }
-
-
-    const Selectpaizv2 = document.getElementById("Selectpaizv2")
 
     Selectpaizv2.addEventListener("change", convertervalues)
 
     converterButton.addEventListener("click", convertervalues);
+    resultadoUser.innerHTML = inseriValor;
 
+    console.log(inseriValor)
+    console.log(Selectpaizv2.value)
 
+    /*to replace img & text */
+    if (Selectpaizv2.value === "dolar") {
+        moedav2.innerHTML = "Dólar Americano"
+        imgfinalv2.src = "./assets/0bd85ff79a7dabec33201d95eb1a05fdea133971.png"
+    }
+    if (Selectpaizv2.value === "libra") {
+        moedav2.innerHTML = "libra"
+        imgfinalv2.src = "./assets/logo.gif"
+    }
+    if (Selectpaizv2.value === "euro") {
+        moedav2.innerHTML = "Euro"
+        imgfinalv2.src = "./assets/logo.gif"
+    }
+    if (Selectpaizv2.value === "real") {
+        moedav2.innerHTML = "real"
+        imgfinalv2.src = "./assets/logo.gif"
+    }
 
-
-
+    /*Calculos*/
+    if (Selectpaizv2.value === taxas) {
+        resultadofinal.innerHTML = new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "R$"
+        }).format(inseriValor / taxas)
+    }
+    if (Selectpaizv2.value === taxas) {
+        resultadofinal.innerHTML = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD"
+        }).format(inseriValor / taxas)
+    }
+    if (Selectpaizv2.value === taxas) {
+        resultadofinal.innerHTML = new Intl.NumberFormat("de-DE", {
+            style: "currency",
+            currency: "EUR"
+        }).format(inseriValor / taxas)
+    }
+    if (Selectpaizv2.value === taxas) {
+        resultadofinal.innerHTML = new Intl.NumberFormat("lb", {
+            style: "currency",
+            currency: "GBP"
+        }).format(inseriValor / taxas)
+    }
 }
+
+
+
+
+
 /*
 const Selectpaizv2 = document.getElementById("Selectpaizv2")
 
