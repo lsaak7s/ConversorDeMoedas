@@ -1,35 +1,31 @@
-
 const primeiroSelect = document.getElementById("primeiroSelect1");
-primeiroSelect.addEventListener("change", () => console.log(primeiroSelect.value));
+const primeiraImg = document.getElementById("primeiraImg");
+const moedav1 = document.getElementById("moedav1");
+primeiroSelect.addEventListener("change", imgvalueUser);
 
-
-
-
-
-/*
 function imgvalueUser() {
 
     if (primeiroSelect.value == "dolar") {
-        primeiroSelect.innerHTML = "Dólar Americano"
-        primeiroSelect.src = "./assets/0bd85ff79a7dabec33201d95eb1a05fdea133971.png"
+        moedav1.innerHTML = "Dólar"
+        primeiraImg.src = "./assets/0bd85ff79a7dabec33201d95eb1a05fdea133971.png"
     }
     if (primeiroSelect.value == "libra") {
-        primeiroSelect.innerHTML = "libra"
-        primeiroSelect.src = "./assets/logo.gif"
+        moedav1.innerHTML = "Libra"
+        primeiraImg.src = "./assets/logo.gif"
     }
     if (primeiroSelect.value == "euro") {
-        primeiroSelect.innerHTML = "Euro"
-        primeiroSelect.src = "./assets/logo.gif"
+        moedav1.innerHTML = "Euro"
+        primeiraImg.src = "./assets/logo.gif"
     }
     if (primeiroSelect.value == "real") {
-        primeiroSelect.innerHTML = "real"
-        primeiroSelect.src = "./assets/logo.gif"
+        moedav1.innerHTML = "Real"
+        primeiraImg.src = "./assets/logo.gif"
     }
 
-} 
-
+}
+/*
 const buttonConverter = document.getElementById("buttonConverter");
-buttonConverter.addEventListener("click", imgvalueUser);*/
+buttonConverter.addEventListener("click", imgvalueUser);
 /*
 
 const segundoSelect = document.getElementById("segundoSelect")
