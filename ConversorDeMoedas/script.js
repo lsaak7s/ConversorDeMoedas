@@ -1,32 +1,36 @@
-const primeiroSelect = document.getElementById("primeiroSelect")
 
+const primeiroSelect = document.getElementById("primeiroSelect1");
+primeiroSelect.addEventListener("change", () => console.log(primeiroSelect.value));
+
+
+
+
+
+/*
 function imgvalueUser() {
 
-
-    primeiroSelect.addEventListener("change", imgvalueUser);
-
-    buttonConverter.addEventListener("click", imgvalueUser);
-    const origem = primeiroSelect.value;
-
     if (primeiroSelect.value == "dolar") {
-        primeiraImg.innerHTML = "Dólar Americano"
-        primeiraImg.src = "./assets/0bd85ff79a7dabec33201d95eb1a05fdea133971.png"
+        primeiroSelect.innerHTML = "Dólar Americano"
+        primeiroSelect.src = "./assets/0bd85ff79a7dabec33201d95eb1a05fdea133971.png"
     }
     if (primeiroSelect.value == "libra") {
-        primeiraImg.innerHTML = "libra"
-        primeiraImg.src = "./assets/logo.gif"
+        primeiroSelect.innerHTML = "libra"
+        primeiroSelect.src = "./assets/logo.gif"
     }
     if (primeiroSelect.value == "euro") {
-        primeiraImg.innerHTML = "Euro"
-        primeiraImg.src = "./assets/logo.gif"
+        primeiroSelect.innerHTML = "Euro"
+        primeiroSelect.src = "./assets/logo.gif"
     }
     if (primeiroSelect.value == "real") {
-        primeiraImg.innerHTML = "real"
-        primeiraImg.src = "./assets/logo.gif"
+        primeiroSelect.innerHTML = "real"
+        primeiroSelect.src = "./assets/logo.gif"
     }
 
-}
+} 
 
+const buttonConverter = document.getElementById("buttonConverter");
+buttonConverter.addEventListener("click", imgvalueUser);*/
+/*
 
 const segundoSelect = document.getElementById("segundoSelect")
 
@@ -50,7 +54,7 @@ function convertervalues() {
     console.log(inseriValor)
     console.log(segundoSelect.value)
 
-    /*to replace img & text*/
+
     if (segundoSelect.value === "dolar") {
         moedav2.innerHTML = "Dólar Americano"
         imgfinalv2.src = "./assets/0bd85ff79a7dabec33201d95eb1a05fdea133971.png"
@@ -68,7 +72,7 @@ function convertervalues() {
         imgfinalv2.src = "./assets/logo.gif"
     }
 
-    /* Calculos*/
+
     if (segundoSelect.value === taxas) {
         resultadofinal.innerHTML = new Intl.NumberFormat("pt-BR", {
             style: "currency",
@@ -100,6 +104,10 @@ const Selectpaizv2 = document.getElementById("Selectpaizv2")
 Selectpaizv2.addEventListener("change", convertervalues)
 
 converterButton.addEventListener("click", convertervalues);
+
+
+*/
+
 
 
 
