@@ -1,74 +1,126 @@
+/*Se Precisa ter interação Guarde em uma Variável */
+const primeiroSelect = document.getElementById("primeiroSelect1");
+/*Primeira moeda*/
+const primeiraImg = document.getElementById("primeiraImg");
+const moedav1 = document.getElementById("moedav1");
+/*Ele estar olhando 👀*/
+primeiroSelect.addEventListener("change", imgvalueUser1);
+
+/*Muda a primeira imagem e o texto da moeda */
+function imgvalueUser1() {
+
+    if (primeiroSelect.value == "dolar") {
+        moedav1.innerHTML = "Dólar Americano"
+        primeiraImg.src = "./assets/EUA.png"
+    }
+    if (primeiroSelect.value == "libra") {
+        moedav1.innerHTML = "Libra Esterlina"
+        primeiraImg.src = "./assets/LB.png"
+    }
+    if (primeiroSelect.value == "euro") {
+        moedav1.innerHTML = "Euro Europeu"
+        primeiraImg.src = "./assets/EUR.png"
+    }
+    if (primeiroSelect.value == "real") {
+        moedav1.innerHTML = "Real Brasileiro"
+        primeiraImg.src = "./assets/BR.png"
+    }
+}
+
+/*Segunda moeda */
+const segundoSelect = document.getElementById("segundoSelect2");
+
+/*Segunda moeda*/
+const segundaImg = document.getElementById("segundaImg");
+const moedav2 = document.getElementById("moedav2");
+/*Ele estar olhando 👀*/
+
+segundoSelect.addEventListener("change", imgvalueUser2);
+/*Muda a segunda imagem e o texto da moeda */
+
+function imgvalueUser2() {
+
+    if (segundoSelect.value == "dolar") {
+        moedav2.innerHTML = "Dólar Americano"
+        segundaImg.src = "./assets/EUA.png"
+    }
+    if (segundoSelect.value == "libra") {
+        moedav2.innerHTML = "Libra Esterlina"
+        segundaImg.src = "./assets/LB.png"
+    }
+    if (segundoSelect.value == "euro") {
+        moedav2.innerHTML = "Euro Europeu"
+        segundaImg.src = "./assets/EUR.png"
+    }
+    if (segundoSelect.value == "real") {
+        moedav2.innerHTML = "Real Brasileiro"
+        segundaImg.src = "./assets/BR.png"
+    }
+}
+
+const taxas = {
+    real: 1.00,
+    dolar: 5.19,
+    euro: 5.93,
+    libra: 6.88
+};
+
+/*BUTTON*/
+const buttonConverter = document.getElementById("buttonConverter");
+buttonConverter.addEventListener("click", convertervalues);
+/*INPUT Valor do User*/
+const inseriValor = document.getElementById("inseriValor")
+/*Função de conversão de valores */
 function convertervalues() {
+    /*Pega o valor do input e transforma em número */
+    const valor = Number(inseriValor.value);
+    /*Pega o valor dos select e transforma em string */
+    const origem = primeiroSelect.value;
+    const destino = segundoSelect.value;
 
-    const converterButton = document.getElementById("converterButton");
-    const Selectpaiz = document.getElementById("Selectpaiz")
+    /*Transforma o valor em reais */
+    const valorEmReal = valor * taxas[origem];
+    /*Dá o resultado da conversão */
+    const resultado = valorEmReal / taxas[destino];
 
-    const resultadovalor = document.getElementById("resultadovalor");
-    const resultadofinal = document.getElementById("resultadofinal");
+    /*Mostra o valor do input e o resultado da conversão */
+    const valueinUser = document.getElementById("valueinUser")
+    const valueFinal = document.getElementById("valueFinal")
+    /*Vai amostra inserido*/
+    valueinUser.innerHTML = valor;
 
-    const inseriValor = document.getElementById("inseriValor").value
-
-    const dolar = 5.2;
-    const libra = 7.5;
-    const euro = 9.0;
-
-    if (Selectpaiz.value == "dolar") {
-        resultadofinal.innerHTML = new Intl.NumberFormat("en-US", {
+    if (destino === "real") {
+        valueFinal.innerHTML = new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        }).format(resultado)
+    }
+    if (destino === "dolar") {
+        valueFinal.innerHTML = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD"
-        }).format(inseriValor / dolar)
+        }).format(resultado)
     }
-
-    if (Selectpaiz.value == "euro") {
-        resultadofinal.innerHTML = new Intl.NumberFormat("de-DE", {
+    if (destino === "euro") {
+        valueFinal.innerHTML = new Intl.NumberFormat("de-DE", {
             style: "currency",
             currency: "EUR"
-        }).format(inseriValor / euro)
+        }).format(resultado)
     }
-
-
-    if (Selectpaiz.value == "libra") {
-        resultadofinal.innerHTML = new Intl.NumberFormat("lb", {
+    if (destino === "libra") {
+        valueFinal.innerHTML = new Intl.NumberFormat("en-GB", {
             style: "currency",
             currency: "GBP"
-        }).format(inseriValor / libra)
-    }
-
-    resultadovalor.innerHTML = new Intl.NumberFormat("pt-BR", {
-        style: "currency",
-        currency: "BRL"
-    }).format(inseriValor)
-
-
-}
-
-function chang() {
-    const moeda = document.getElementById("moeda")
-    const imgfinal = document.getElementById("imgfinal")
-
-
-
-    if (Selectpaiz.value == "dolar") {
-        moeda.innerHTML = "Dólar Americano"
-        imgfinal.src = "./assets/0bd85ff79a7dabec33201d95eb1a05fdea133971.png"
-    }
-
-    if (Selectpaiz.value == "libra") {
-        moeda.innerHTML = "libra"
-        imgfinal.src = "./assets/logo.gif"
-    }
-
-    if (Selectpaiz.value == "euro") {
-        moeda.innerHTML = "Euro"
-        imgfinal.src = "./assets/logo.gif"
-    }
-    convertervalues()
-
+        }).format(resultado)
+    }/*Use isso para chamar a função toda vez que tiver uma alteração */
+    primeiroSelect.addEventListener("change", convertervalues);
+    segundoSelect.addEventListener("change", convertervalues);
 }
 
 
 
 
-Selectpaiz.addEventListener("change", chang);
-converterButton.addEventListener("click", convertervalues);
+
+
+
 
