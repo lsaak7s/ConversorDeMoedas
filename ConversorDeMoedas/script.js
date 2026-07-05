@@ -1,4 +1,5 @@
 const primeiroSelect = document.getElementById("primeiroSelect1");
+
 const primeiraImg = document.getElementById("primeiraImg");
 const moedav1 = document.getElementById("moedav1");
 primeiroSelect.addEventListener("change", imgvalueUser1);
@@ -25,6 +26,7 @@ function imgvalueUser1() {
 
 
 const segundoSelect = document.getElementById("segundoSelect2");
+
 const segundaImg = document.getElementById("segundaImg");
 const moedav2 = document.getElementById("moedav2");
 segundoSelect.addEventListener("change", imgvalueUser2);
@@ -50,61 +52,64 @@ function imgvalueUser2() {
 }
 
 
-/*BUTTON*//*
+
+const taxas = {
+    real: 1.00,
+    dolar: 5.19,
+    euro: 5.93,
+    libra: 6.88
+};
+
+/*Transformar o valor inserido em um número*/
+const inseriValor = document.getElementById("inseriValor")
+const valor = Number(inseriValor.value);
+
+const origem = primeiroSelect.value;
+const destino = segundoSelect.value;
+
+/*Transforma o valor em reais */
+const valorEmReal = valor * taxas[origem];
+/*Dá o resultado da conversão */
+const resultado = valorEmReal / taxas[destino];
+
+
+const valueinUser = document.getElementById("valueinUser")
+const valueFinal = document.getElementById("valueFinal")
+
+/*BUTTON*/
 const buttonConverter = document.getElementById("buttonConverter");
-buttonConverter.addEventListener("click", imgvalueUser);*/
-/*
-   
-
-    function convertervalues() {
-
-        const destino = segundoSelect.value;
-        const valor = primeiroSelect(inseriValor.value);
-
-        const valorEmReal = valor * taxas[origem];
-        const resultado = valorEmReal / taxas[destino];
-
-        const inseriValor = document.getElementById("inseriValor").value
-        const valueinUser = document.getElementById("valueinUser")
-        const valueFinal = document.getElementById("valueFinal")
-
-        segundoSelect.addEventListener("change", convertervalues)
-
-        converterButton.addEventListener("click", convertervalues);
-        resultadoUser.innerHTML = inseriValor;
-
-        console.log(inseriValor)
-        console.log(segundoSelect.value)
+buttonConverter.addEventListener("click", convertervalues);
 
 
+function convertervalues() {
 
-        if (segundoSelect.value === taxas) {
-            resultadofinal.innerHTML = new Intl.NumberFormat("pt-BR", {
-                style: "currency",
-                currency: "R$"
-            }).format(inseriValor / taxas)
-        }
-        if (segundoSelect.value === taxas) {
-            resultadofinal.innerHTML = new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD"
-            }).format(inseriValor / taxas)
-        }
-        if (segundoSelect.value === taxas) {
-            resultadofinal.innerHTML = new Intl.NumberFormat("de-DE", {
-                style: "currency",
-                currency: "EUR"
-            }).format(inseriValor / taxas)
-        }
-        if (segundoSelect.value === taxas) {
-            resultadofinal.innerHTML = new Intl.NumberFormat("lb", {
-                style: "currency",
-                currency: "GBP"
-            }).format(inseriValor / taxas)
-        }
+    if (destino === "real") {
+        valueFinal.innerHTML = new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        }).format(resultado)
     }
+    if (destino === "dolar") {
+        valueFinal.innerHTML = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD"
+        }).format(resultado)
+    }
+    if (destino === "euro") {
+        valueFinal.innerHTML = new Intl.NumberFormat("de-DE", {
+            style: "currency",
+            currency: "EUR"
+        }).format(resultado)
+    }
+    if (destino === "libra") {
+        valueFinal.innerHTML = new Intl.NumberFormat("lb", {
+            style: "currency",
+            currency: "GBP"
+        }).format(resultado)
+    }
+}
 
-    
+
 
 
 
