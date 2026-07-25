@@ -1,5 +1,5 @@
 # 💱 Conversor de Moedas
-
+⚙️ Este projeto está em desenvolvimento e recebe melhorias contínuas à medida que avanço nos estudos de JavaScript.
 Converta valores entre **Real (BRL)**, **Dólar (USD)**, **Euro (EUR)** e **Libra Esterlina (GBP)** de forma rápida, prática e intuitiva.
 
 **HTML • CSS • JavaScript**
