@@ -58,20 +58,31 @@ function imgvalueUser2() {
     }
 }
 
-const taxas = {
-    real: 1.00,
-    dolar: 5.19,
-    euro: 5.93,
-    libra: 6.88
-};
+/*
+const real = data.BTCBRL.high
+const dolar = data.USDBRL.high
+const euro = data.EURBRL.high
+const libra = data.GBPBRL.high
 
+*/
 /*BUTTON*/
 const buttonConverter = document.getElementById("buttonConverter");
 buttonConverter.addEventListener("click", convertervalues);
 /*INPUT Valor do User*/
 const inseriValor = document.getElementById("inseriValor")
 /*Função de conversão de valores */
-function convertervalues() {
+async function convertervalues() {
+
+    const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL,GBP-BRL").then(response => response.json())
+    console.log(data)
+    
+    const taxas = {
+        real: data.BTCBRL.high,
+        dolar: data.USDBRL.high,
+        euro: data.EURBRL.high,
+        libra: data.GBPBRL.high
+    }
+    
     /*Pega o valor do input e transforma em número */
     const valor = Number(inseriValor.value);
     /*Pega o valor dos select e transforma em string */
