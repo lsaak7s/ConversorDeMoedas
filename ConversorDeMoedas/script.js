@@ -87,7 +87,7 @@ async function convertervalues() {
     //Transforma o valor em reais
     const valorEmReal = valor * taxas[origem];
     //Dá o resultado da conversão
-    const resultado = valor / taxas[destino];
+    const resultado =  taxas[origem] * taxas[destino] ;
     //Mostra o valor do input e o resultado da conversão
     const valueinUser = document.getElementById("valueinUser")
     const valueFinal = document.getElementById("valueFinal")
