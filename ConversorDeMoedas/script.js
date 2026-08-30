@@ -83,11 +83,13 @@ async function convertervalues() {
     /*Pega o valor dos select e transforma em string */
     const origem = primeiroSelect.value;
     const destino = segundoSelect.value;
-
     //Transforma o valor em reais
-    const valorEmReal = valor * taxas[origem];
+    //const valorEmReal = valor * taxas[origem];
+
+    const resultado = valor / taxas[destino];
+
     //Dá o resultado da conversão
-    const resultado =  taxas[origem] * taxas[destino] ;
+
     //Mostra o valor do input e o resultado da conversão
     const valueinUser = document.getElementById("valueinUser")
     const valueFinal = document.getElementById("valueFinal")
