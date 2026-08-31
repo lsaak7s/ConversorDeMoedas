@@ -95,22 +95,35 @@ async function convertervalues() {
         console.log("igual")
         resultado = valor
     }
-
-    else if (taxasOrigem && taxasDestino) {
+    if (origem === destino) {
         console.log("igual")
+        resultado = valor
+    }
+    else if (taxasOrigem !== taxasDestino) {
+        console.log("Diferente")
         resultado = valor * taxasOrigem
     }
 
+    else if (origem = !taxas.real) {
+        console.log("Contrario")
 
-   /* else if (origem && "real") {
-        console.log("Diferente")
-        resultado = valor * taxasOrigem / taxasDestino
     }
 
-    else if (origem && "real") {
-        console.log("Diferente")
-        resultado = valor * taxasOrigem / taxasDestino
-    }*/
+
+
+
+    /*
+       
+    
+         else if (origem && "real") {
+             console.log("Diferente")
+             resultado = valor * taxasOrigem / taxasDestino
+         }
+     
+         else if (origem && "real") {
+             console.log("Diferente")
+             resultado = valor * taxasOrigem / taxasDestino
+         }*/
 
 
 
