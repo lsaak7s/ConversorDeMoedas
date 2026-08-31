@@ -69,10 +69,10 @@ async function convertervalues() {
     const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,GBP-BRL,BRL-USD").then(response => response.json())
 
     const taxas = {
-        real: data.BRLUSD.high,
-        dolar: data.USDBRL.high,
-        euro: data.EURBRL.high,
-        libra: data.GBPBRL.high
+        real: 1,
+        dolar: data.USDBRL.bid,
+        euro: data.EURBRL.bid,
+        libra: data.GBPBRL.bid
     }
     //console.log(taxas);
 
@@ -81,76 +81,24 @@ async function convertervalues() {
     /*Pega o valor dos select e transforma em string */
     const origem = primeiroSelect.value;
     const destino = segundoSelect.value;
-    //Transforma o valor em reais
-    //const valorEmReal = valor * taxas[origem];
-    const taxasOrigem = origem && taxas[origem];
-    const taxasDestino = destino && taxas[destino]
 
+    //Pegando e juntando o valor do selcte igual ao das taxas
+    const taxasOrigem = taxas[origem];
+    const taxasDestino = taxas[destino]
 
-    //console.log(resultado1);
 
     let resultado;
-
-    if (origem === destino) {
+    //Valores iguais
+    if (taxasOrigem === taxasDestino) {
         console.log("igual")
         resultado = valor
     }
 
-    if (origem !== "real") {
+    //Valores diferentes
+    if (origem !== destino) {
         console.log("Contrario")
-        resultado = valor * taxasOrigem / taxasDestino
+        resultado = valor * taxasOrigem / taxasDestino;
     }
-
-    else if (taxasOrigem !== taxasDestino) {
-        console.log("Diferente")
-        resultado = valor * taxasOrigem
-    }
-
-
-
-
-
-    /*
-       
-    
-         else if (origem && "real") {
-             console.log("Diferente")
-             resultado = valor * taxasOrigem / taxasDestino
-         }
-     
-         else if (origem && "real") {
-             console.log("Diferente")
-             resultado = valor * taxasOrigem / taxasDestino
-         }*/
-
-
-
-
-
-
-
-
-
-
-    // const resultado = origem && taxas.real ? valor * taxasOrigem : valor * taxasOrigem / taxasDestino
-
-
-    //contas do segundo selcte feito
-    //const resultado = valor * taxasOrigem / taxasDestino;
-
-
-
-
-
-
-
-
-
-
-
-
-    //const resultado = valor * valorpaiz / valorpaiz2;
-    //Dá o resultado da conversão
 
     //Mostra o valor do input e o resultado da conversão
     const valueinUser = document.getElementById("valueinUser")
