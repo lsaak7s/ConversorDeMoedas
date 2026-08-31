@@ -63,9 +63,34 @@ buttonConverter.addEventListener("click", convertervalues);
 //INPUT Valor do User
 const inseriValor = document.getElementById("inseriValor")
 
+
+async function buscarMoedas() {
+    const resposta = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,GBP-BRL,BRL-USD");
+    const dados = await resposta.json();
+
+    moedas = dados;
+
+    criarOpcoes();
+}
+
+
+function criarOpcoes() {
+    moedas.forEach((moeda) => {
+        const option = document.createElement("option");
+
+        option.value = moeda.code;
+        option.textContent = `${moeda.code} - ${moeda.name}`;
+
+        selectMoeda.appendChild(option);
+    });
+}
+
+
 //Função de conversão de valores
 async function convertervalues() {
     //live values
+
+
     const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,GBP-BRL,BRL-USD").then(response => response.json())
 
     const taxas = {
@@ -74,7 +99,18 @@ async function convertervalues() {
         euro: data.EURBRL.bid,
         libra: data.GBPBRL.bid
     }
-    //console.log(taxas);
+
+
+
+
+    const respostaDaApi = [
+        { code: data.code, codein: "data.codein", name: "data.name", bid: "data.bid" },
+    ];
+
+    console.log(respostaDaApi);
+
+
+
 
     /*Pega o valor do input e transforma em número */
     const valor = Number(inseriValor.value);
@@ -86,6 +122,9 @@ async function convertervalues() {
     const taxasOrigem = taxas[origem];
     const taxasDestino = taxas[destino]
 
+    const nomeMoeda = document.querySelector("#nomeMoeda");
+    const cotacao = document.querySelector("#cotacao");
+    const bandeira = document.querySelector("#bandeira");
 
     let resultado;
     //Valores iguais
@@ -158,6 +197,33 @@ async function convertervalues() {
             currency: "GBP"
         }).format(resultado)
     }
+
+
+    respostaDaApi.forEach((moeda) => {
+        select.innerHTML += `
+    <option value="${moeda.code}">
+      ${moeda.code} — ${moeda.name}
+    </option>
+  `;
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //Use isso para chamar a função toda vez que tiver uma alteração 
     primeiroSelect.addEventListener("change", convertervalues);
