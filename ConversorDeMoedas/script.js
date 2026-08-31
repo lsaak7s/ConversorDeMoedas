@@ -95,19 +95,17 @@ async function convertervalues() {
         console.log("igual")
         resultado = valor
     }
-    if (origem === destino) {
-        console.log("igual")
-        resultado = valor
+
+    if (origem !== "real") {
+        console.log("Contrario")
+        resultado = valor * taxasOrigem / taxasDestino
     }
+
     else if (taxasOrigem !== taxasDestino) {
         console.log("Diferente")
         resultado = valor * taxasOrigem
     }
 
-    else if (origem = !taxas.real) {
-        console.log("Contrario")
-
-    }
 
 
 
