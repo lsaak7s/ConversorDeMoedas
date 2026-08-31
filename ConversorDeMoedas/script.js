@@ -26,7 +26,6 @@ function imgvalueUser1() {
         primeiraImg.src = "./assets/BR.png"
     }
 }
-
 //Segunda moeda 
 const segundoSelect = document.getElementById("segundoSelect2");
 
@@ -76,7 +75,7 @@ async function convertervalues() {
         libra: data.GBPBRL.high
     }
 
-    console.log(taxas);
+    //console.log(taxas);
 
     /*Pega o valor do input e transforma em número */
     const valor = Number(inseriValor.value);
@@ -85,9 +84,17 @@ async function convertervalues() {
     const destino = segundoSelect.value;
     //Transforma o valor em reais
     //const valorEmReal = valor * taxas[origem];
+    const valorpaiz = origem && taxas[origem];
+    const valorpaiz2 = destino && taxas[destino]
+    console.log(valorpaiz2);
 
-    const resultado = valor / taxas[destino];
 
+    if (origem && taxas.real) {
+     const resultado = valor * valorpaiz / valorpaiz2;
+    } else {
+
+    }
+    const resultado = valor * valorpaiz / valorpaiz2;
     //Dá o resultado da conversão
 
     //Mostra o valor do input e o resultado da conversão
