@@ -74,7 +74,6 @@ async function convertervalues() {
         euro: data.EURBRL.high,
         libra: data.GBPBRL.high
     }
-
     //console.log(taxas);
 
     /*Pega o valor do input e transforma em número */
@@ -84,17 +83,24 @@ async function convertervalues() {
     const destino = segundoSelect.value;
     //Transforma o valor em reais
     //const valorEmReal = valor * taxas[origem];
-    const valorpaiz = origem && taxas[origem];
-    const valorpaiz2 = destino && taxas[destino]
-    console.log(valorpaiz2);
+    const taxasOrigem = origem && taxas[origem];
+    const taxasDestino = destino && taxas[destino]
+    const dest = valor * taxas[destino]
+
+    const resultado = valor * taxasOrigem / taxasDestino;
+    console.log(dest);
 
 
-    if (origem && taxas.real) {
-     const resultado = valor * valorpaiz / valorpaiz2;
-    } else {
 
-    }
-    const resultado = valor * valorpaiz / valorpaiz2;
+
+
+
+
+
+
+
+
+    //const resultado = valor * valorpaiz / valorpaiz2;
     //Dá o resultado da conversão
 
     //Mostra o valor do input e o resultado da conversão
