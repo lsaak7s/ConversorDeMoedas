@@ -1,10 +1,70 @@
 //Se Precisa ter interação Guarde em uma Variável
-const primeiroSelect = document.getElementById("primeiroSelect1");
 //Primeira moeda
+const primeiroSelect = document.getElementById("primeiroSelect1");
 const primeiraImg = document.getElementById("primeiraImg");
 const moedav1 = document.getElementById("moedav1");
 //Ele estar olhando 👀
 primeiroSelect.addEventListener("change", imgvalueUser1);
+
+//Segunda moeda 
+const segundoSelect = document.getElementById("segundoSelect2");
+//Segunda moeda
+const segundaImg = document.getElementById("segundaImg");
+const moedav2 = document.getElementById("moedav2");
+//Ele estar olhando 👀
+segundoSelect.addEventListener("change", imgvalueUser2);
+
+//BUTTON
+const buttonConverter = document.getElementById("buttonConverter");
+buttonConverter.addEventListener("click", convertervalues);
+
+//INPUT Valor do User
+const inseriValor = document.getElementById("inseriValor")
+
+let moedas = {};
+
+async function carregarMoedas() {
+    const response = await fetch("https://economia.awesomeapi.com.br/json/available");
+
+    const moneyAvailable = await response.json();
+
+    primeiroSelect.innerHTML = "";
+    segundoSelect.innerHTML = "";
+
+    const selfMadeReal = Object.entries(moneyAvailable).filter(([par]) => par.endsWith("-BRL"))
+        .map(([par, name]) => {
+            //Aqui ele retirar a sigla da moeda
+            const selfMadeMoney = par.replace("-BRL", "");
+            //Aqui ele retira a barra de separação que vem na api e deixa apenas o primeiro nome
+            const nameMoney = name.split("/")[0];
+            return {
+                selfMadeMoney,
+                name: nameMoney
+            };
+            //Aqui ele estar organizando as moedas em ordem alfabetica
+        }).sort((a, b) => a.name.localeCompare(b.name));
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Muda a primeira imagem e o texto da moeda 
 function imgvalueUser1() {
@@ -26,17 +86,7 @@ function imgvalueUser1() {
         primeiraImg.src = "./assets/BR.png"
     }
 }
-//Segunda moeda 
-const segundoSelect = document.getElementById("segundoSelect2");
-
-//Segunda moeda
-const segundaImg = document.getElementById("segundaImg");
-const moedav2 = document.getElementById("moedav2");
-//Ele estar olhando 👀
-
-segundoSelect.addEventListener("change", imgvalueUser2);
 //Muda a segunda imagem e o texto da moeda
-
 function imgvalueUser2() {
 
     if (segundoSelect.value == "dolar") {
@@ -56,12 +106,10 @@ function imgvalueUser2() {
         segundaImg.src = "./assets/BR.png"
     }
 }
-//BUTTON
-const buttonConverter = document.getElementById("buttonConverter");
-buttonConverter.addEventListener("click", convertervalues);
 
-//INPUT Valor do User
-const inseriValor = document.getElementById("inseriValor")
+
+
+
 
 //Função de conversão de valores
 async function convertervalues() {
@@ -102,8 +150,10 @@ async function convertervalues() {
     const valueFinal = document.getElementById("valueFinal")
 
 
-    //Valor Formatado do Usuario
 
+
+
+    //Valor Formatado do Usuario
     if (origem === "real") {
         valueinUser.innerHTML = new Intl.NumberFormat("pt-BR", {
             style: "currency",
@@ -129,8 +179,20 @@ async function convertervalues() {
         }).format(valor)
     }
 
-    //Valor Formatado do Resultado
 
+
+
+
+
+
+
+
+
+
+
+
+
+    //Valor Formatado do Resultado
     if (destino === "real") {
         valueFinal.innerHTML = new Intl.NumberFormat("pt-BR", {
             style: "currency",
@@ -155,30 +217,10 @@ async function convertervalues() {
             currency: "GBP"
         }).format(resultado)
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //Use isso para chamar a função toda vez que tiver uma alteração 
     primeiroSelect.addEventListener("change", convertervalues);
     segundoSelect.addEventListener("change", convertervalues);
-}
+};
 
 
 
