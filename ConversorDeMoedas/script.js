@@ -44,9 +44,52 @@ async function carregarMoedas() {
             //Aqui ele estar organizando as moedas em ordem alfabetica
         }).sort((a, b) => a.name.localeCompare(b.name));
 
+    selfMadeReal.forEach((moeda) => {
+        //Aqui estamos preenchendo um elemento html pelo javascript no caso o option
+        const firstoption = document.createElement("option");
+        //Codigo inteligente, Aqui o valor que estar no value serar o sinbolo da moeda 
+        firstoption.value = moeda.selfMadeMoney;
+        //Aqui ele estar mandando para o html
+        firstoption.innerHTML = `${moeda.selfMadeMoney} -- ${moeda.name} `;
+
+        const secondOption = firstoption.cloneNode(true);
 
 
+        primeiroSelect.appendChild(firstoption);
+        segundoSelect.appendChild(secondOption);
+    });
 
+    //O valor base dos select
+    primeiroSelect.value = "BRL";
+    segundoSelect.value = "USD";
+    //Aqui ele ja chama a função alterar os names
+    updateName();
+}
+//Toda vez que trocamos o valor do select ele atualiza
+function updateName() {
+    moedav1.textContent = primeiroSelect.options[primeiroSelect.selectedIndex].textContent;
+    moedav2.textContent = segundoSelect.options[segundoSelect.selectedIndex].textContent;
+}
+
+async function findRealfees(selfMadeReal) {
+    //Aqui ele estar informando para o codigo o valor do Real em especifico
+    if (selfMadeReal === "BRL") {
+        return 1;
+    }
+    //Codigo de mestre slk, Ali o => e a mesma coisa de USD-BRL, porque a variavel ja busca a cotação em relação ao real
+    const response = await fetch(
+        `https://economia.awesomeapi.com.br/json/last/${selfMadeReal}-BRL`
+    );
+    // Api respondeu em json ai aqui lemos oque a api trouxe em json e transformamos em javascript
+    const dados = await response.json();
+    //Aqui ele estamos pegando os dados que veio da resposta do json
+    const bigPrice = Object.values(dados)[0]
+    //Aqui ele verifica se teve um error
+    if (!bigPrice || bigPrice.bid) {
+        throw new Error("Moeda Não Possue Cotação em Relação ao Real");
+    }
+    //Aqui ele transfomar o bid em numero
+    return Number(bigPrice.bid);
 }
 
 
@@ -65,6 +108,50 @@ async function carregarMoedas() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
 //Muda a primeira imagem e o texto da moeda 
 function imgvalueUser1() {
@@ -123,9 +210,9 @@ async function convertervalues() {
         libra: data.GBPBRL.bid
     }
 
-    /*Pega o valor do input e transforma em número */
+    //Pega o valor do input e transforma em número 
     const valor = Number(inseriValor.value);
-    /*Pega o valor dos select e transforma em string */
+    //Pega o valor dos select e transforma em string 
     const origem = primeiroSelect.value;
     const destino = segundoSelect.value;
 
@@ -148,10 +235,10 @@ async function convertervalues() {
     //Mostra o valor do input e o resultado da conversão
     const valueinUser = document.getElementById("valueinUser")
     const valueFinal = document.getElementById("valueFinal")
+*/
 
 
-
-
+/*
 
     //Valor Formatado do Usuario
     if (origem === "real") {
@@ -178,6 +265,7 @@ async function convertervalues() {
             currency: "GBP"
         }).format(valor)
     }
+*/
 
 
 
@@ -190,8 +278,7 @@ async function convertervalues() {
 
 
 
-
-
+/*
     //Valor Formatado do Resultado
     if (destino === "real") {
         valueFinal.innerHTML = new Intl.NumberFormat("pt-BR", {
@@ -220,7 +307,7 @@ async function convertervalues() {
     //Use isso para chamar a função toda vez que tiver uma alteração 
     primeiroSelect.addEventListener("change", convertervalues);
     segundoSelect.addEventListener("change", convertervalues);
-};
+};*/
 
 
 
