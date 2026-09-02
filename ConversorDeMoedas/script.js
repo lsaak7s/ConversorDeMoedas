@@ -26,7 +26,6 @@ function imgvalueUser1() {
         primeiraImg.src = "./assets/BR.png"
     }
 }
-
 //Segunda moeda 
 const segundoSelect = document.getElementById("segundoSelect2");
 
@@ -70,25 +69,33 @@ async function convertervalues() {
     const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,GBP-BRL,BRL-USD").then(response => response.json())
 
     const taxas = {
-        real: data.BRLUSD.high,
-        dolar: data.USDBRL.high,
-        euro: data.EURBRL.high,
-        libra: data.GBPBRL.high
+        real: 1,
+        dolar: data.USDBRL.bid,
+        euro: data.EURBRL.bid,
+        libra: data.GBPBRL.bid
     }
-
-    console.log(taxas);
 
     /*Pega o valor do input e transforma em número */
     const valor = Number(inseriValor.value);
     /*Pega o valor dos select e transforma em string */
     const origem = primeiroSelect.value;
     const destino = segundoSelect.value;
-    //Transforma o valor em reais
-    //const valorEmReal = valor * taxas[origem];
 
-    const resultado = valor / taxas[destino];
+    //Pegando e juntando o valor do selcte igual ao das taxas
+    const taxasOrigem = taxas[origem];
+    const taxasDestino = taxas[destino]
 
-    //Dá o resultado da conversão
+
+    let resultado;
+    //Valores iguais
+    if (taxasOrigem === taxasDestino) {
+        resultado = valor
+    }
+
+    //Valores diferentes
+    if (origem !== destino) {
+        resultado = valor * taxasOrigem / taxasDestino;
+    }
 
     //Mostra o valor do input e o resultado da conversão
     const valueinUser = document.getElementById("valueinUser")
@@ -148,6 +155,25 @@ async function convertervalues() {
             currency: "GBP"
         }).format(resultado)
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //Use isso para chamar a função toda vez que tiver uma alteração 
     primeiroSelect.addEventListener("change", convertervalues);
