@@ -3,20 +3,15 @@
 const primeiroSelect = document.getElementById("primeiroSelect1");
 const primeiraImg = document.getElementById("primeiraImg");
 const moedav1 = document.getElementById("moedav1");
-//Ele estar olhando 👀
-primeiroSelect.addEventListener("change", imgvalueUser1);
 
 //Segunda moeda 
 const segundoSelect = document.getElementById("segundoSelect2");
 //Segunda moeda
 const segundaImg = document.getElementById("segundaImg");
 const moedav2 = document.getElementById("moedav2");
-//Ele estar olhando 👀
-segundoSelect.addEventListener("change", imgvalueUser2);
 
 //BUTTON
 const buttonConverter = document.getElementById("buttonConverter");
-buttonConverter.addEventListener("click", convertervalues);
 
 //INPUT Valor do User
 const inseriValor = document.getElementById("inseriValor")
@@ -92,14 +87,45 @@ async function findRealfees(selfMadeReal) {
     return Number(bigPrice.bid);
 }
 
+async function converterValores() {
 
+    const value = Number(inseriValor.value);
+    const origin = primeiroSelect.value;
+    const destination = segundoSelect.value;
+    // Aqui a verifica se digitaração algo
+    if (!value || value <= 0) {
+        alert("Digite un valor Maior que 0");
+        return;
+    }
+    //Aqui ele protege o codigo de erro, assim evita que o codigo Quebre
+    try {
+        //Aqui ele estar esperando buscar a informação da api, da section
+        const feesOrigin = await findRealfees(origin);
+        const feesDestination = await findRealfees(destination);
+        //Matematica👍
+        const calc = (value * feesOrigin) / feesDestination;
+        //Aqui ele estar formatando a moeda
+        valueinUser.textContent = formatar(value, origin);
+        valueFinal.textContent = formatar(calc, destination);
 
-
-
-
-
-
-
+    }//Se tiver erro o catch manda
+    catch {
+        alert("Não foi possível obter a cotação dessa moeda nesse momento.");
+    }
+}
+//Aqui ele formata os valores para parecer com moeda
+function format(value, selfMade) {
+    return new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: selfMade
+    }).format(value);
+}
+//Aqui são os eventos
+primeiroSelect.addEventListener("change", atualizarNomes);
+segundoSelect.addEventListener("change", atualizarNomes);
+buttonConverter.addEventListener("click", converterValores);
+//Aqui ele carrega a function que busca os valores da api
+carregarMoedas();
 
 
 
