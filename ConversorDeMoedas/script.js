@@ -1,10 +1,183 @@
 //Se Precisa ter interação Guarde em uma Variável
-const primeiroSelect = document.getElementById("primeiroSelect1");
 //Primeira moeda
+const primeiroSelect = document.getElementById("primeiroSelect1");
 const primeiraImg = document.getElementById("primeiraImg");
 const moedav1 = document.getElementById("moedav1");
-//Ele estar olhando 👀
-primeiroSelect.addEventListener("change", imgvalueUser1);
+
+//Segunda moeda 
+const segundoSelect = document.getElementById("segundoSelect2");
+//Segunda moeda
+const segundaImg = document.getElementById("segundaImg");
+const moedav2 = document.getElementById("moedav2");
+
+//BUTTON
+const buttonConverter = document.getElementById("buttonConverter");
+
+//INPUT Valor do User
+const inseriValor = document.getElementById("inseriValor")
+
+let moedas = {};
+
+async function carregarMoedas() {
+    const response = await fetch("https://economia.awesomeapi.com.br/json/available");
+
+    const moneyAvailable = await response.json();
+
+    primeiroSelect.innerHTML = "";
+    segundoSelect.innerHTML = "";
+
+    const selfMadeReal = Object.entries(moneyAvailable).filter(([par]) => par.endsWith("-BRL"))
+        .map(([par, name]) => {
+            //Aqui ele retirar a sigla da moeda
+            const selfMadeMoney = par.replace("-BRL", "");
+            //Aqui ele retira a barra de separação que vem na api e deixa apenas o primeiro nome
+            const nameMoney = name.split("/")[0];
+            return {
+                selfMadeMoney,
+                name: nameMoney
+            };
+            //Aqui ele estar organizando as moedas em ordem alfabetica
+        }).sort((a, b) => a.name.localeCompare(b.name));
+
+    selfMadeReal.forEach((moeda) => {
+        //Aqui estamos preenchendo um elemento html pelo javascript no caso o option
+        const firstoption = document.createElement("option");
+        //Codigo inteligente, Aqui o valor que estar no value serar o sinbolo da moeda 
+        firstoption.value = moeda.selfMadeMoney;
+        //Aqui ele estar mandando para o html
+        firstoption.innerHTML = `${moeda.selfMadeMoney} -- ${moeda.name} `;
+
+        const secondOption = firstoption.cloneNode(true);
+
+
+        primeiroSelect.appendChild(firstoption);
+        segundoSelect.appendChild(secondOption);
+    });
+
+    //O valor base dos select
+    primeiroSelect.value = "BRL";
+    segundoSelect.value = "USD";
+    //Aqui ele ja chama a função alterar os names
+    updateName();
+}
+//Toda vez que trocamos o valor do select ele atualiza
+function updateName() {
+    moedav1.textContent = primeiroSelect.options[primeiroSelect.selectedIndex].textContent;
+    moedav2.textContent = segundoSelect.options[segundoSelect.selectedIndex].textContent;
+}
+
+async function findRealfees(selfMadeReal) {
+    //Aqui ele estar informando para o codigo o valor do Real em especifico
+    if (selfMadeReal === "BRL") {
+        return 1;
+    }
+    //Codigo de mestre slk, Ali o => e a mesma coisa de USD-BRL, porque a variavel ja busca a cotação em relação ao real
+    const response = await fetch(
+        `https://economia.awesomeapi.com.br/json/last/${selfMadeReal}-BRL`
+    );
+    // Api respondeu em json ai aqui lemos oque a api trouxe em json e transformamos em javascript
+    const dados = await response.json();
+    //Aqui ele estamos pegando os dados que veio da resposta do json
+    const bigPrice = Object.values(dados)[0]
+    //Aqui ele verifica se teve um error
+    if (!bigPrice || bigPrice.bid) {
+        throw new Error("Moeda Não Possue Cotação em Relação ao Real");
+    }
+    //Aqui ele transfomar o bid em numero
+    return Number(bigPrice.bid);
+}
+
+async function converterValores() {
+
+    const value = Number(inseriValor.value);
+    const origin = primeiroSelect.value;
+    const destination = segundoSelect.value;
+    // Aqui a verifica se digitaração algo
+    if (!value || value <= 0) {
+        alert("Digite un valor Maior que 0");
+        return;
+    }
+    //Aqui ele protege o codigo de erro, assim evita que o codigo Quebre
+    try {
+        //Aqui ele estar esperando buscar a informação da api, da section
+        const feesOrigin = await findRealfees(origin);
+        const feesDestination = await findRealfees(destination);
+        //Matematica👍
+        const calc = (value * feesOrigin) / feesDestination;
+        //Aqui ele estar formatando a moeda
+        valueinUser.textContent = formatar(value, origin);
+        valueFinal.textContent = formatar(calc, destination);
+
+    }//Se tiver erro o catch manda
+    catch {
+        alert("Não foi possível obter a cotação dessa moeda nesse momento.");
+    }
+}
+//Aqui ele formata os valores para parecer com moeda
+function format(value, selfMade) {
+    return new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: selfMade
+    }).format(value);
+}
+//Aqui são os eventos
+primeiroSelect.addEventListener("change", atualizarNomes);
+segundoSelect.addEventListener("change", atualizarNomes);
+buttonConverter.addEventListener("click", converterValores);
+//Aqui ele carrega a function que busca os valores da api
+carregarMoedas();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
 //Muda a primeira imagem e o texto da moeda 
 function imgvalueUser1() {
@@ -26,17 +199,7 @@ function imgvalueUser1() {
         primeiraImg.src = "./assets/BR.png"
     }
 }
-//Segunda moeda 
-const segundoSelect = document.getElementById("segundoSelect2");
-
-//Segunda moeda
-const segundaImg = document.getElementById("segundaImg");
-const moedav2 = document.getElementById("moedav2");
-//Ele estar olhando 👀
-
-segundoSelect.addEventListener("change", imgvalueUser2);
 //Muda a segunda imagem e o texto da moeda
-
 function imgvalueUser2() {
 
     if (segundoSelect.value == "dolar") {
@@ -56,12 +219,10 @@ function imgvalueUser2() {
         segundaImg.src = "./assets/BR.png"
     }
 }
-//BUTTON
-const buttonConverter = document.getElementById("buttonConverter");
-buttonConverter.addEventListener("click", convertervalues);
 
-//INPUT Valor do User
-const inseriValor = document.getElementById("inseriValor")
+
+
+
 
 //Função de conversão de valores
 async function convertervalues() {
@@ -75,9 +236,9 @@ async function convertervalues() {
         libra: data.GBPBRL.bid
     }
 
-    /*Pega o valor do input e transforma em número */
+    //Pega o valor do input e transforma em número 
     const valor = Number(inseriValor.value);
-    /*Pega o valor dos select e transforma em string */
+    //Pega o valor dos select e transforma em string 
     const origem = primeiroSelect.value;
     const destino = segundoSelect.value;
 
@@ -100,10 +261,12 @@ async function convertervalues() {
     //Mostra o valor do input e o resultado da conversão
     const valueinUser = document.getElementById("valueinUser")
     const valueFinal = document.getElementById("valueFinal")
+*/
 
+
+/*
 
     //Valor Formatado do Usuario
-
     if (origem === "real") {
         valueinUser.innerHTML = new Intl.NumberFormat("pt-BR", {
             style: "currency",
@@ -128,9 +291,21 @@ async function convertervalues() {
             currency: "GBP"
         }).format(valor)
     }
+*/
 
+
+
+
+
+
+
+
+
+
+
+
+/*
     //Valor Formatado do Resultado
-
     if (destino === "real") {
         valueFinal.innerHTML = new Intl.NumberFormat("pt-BR", {
             style: "currency",
@@ -155,30 +330,10 @@ async function convertervalues() {
             currency: "GBP"
         }).format(resultado)
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //Use isso para chamar a função toda vez que tiver uma alteração 
     primeiroSelect.addEventListener("change", convertervalues);
     segundoSelect.addEventListener("change", convertervalues);
-}
+};*/
 
 
 
