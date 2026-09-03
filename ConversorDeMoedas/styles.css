@@ -8,6 +8,20 @@
   outline: none;
 }
 
+/* Remove as setas no Chrome, Edge, Safari e Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove as setas no Firefox */
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
 select::-webkit-scrollbar {
   display: none;
 }
@@ -54,7 +68,7 @@ select::-webkit-scrollbar {
   margin: 10px 10px 10px 0px;
   color: #c7ccd8;
   height: 70px;
-  gap:5px;
+  gap: 5px;
   width: 96%;
 }
 
@@ -74,6 +88,7 @@ select::-webkit-scrollbar {
   background-color: #22242A;
   cursor: pointer;
 }
+
 .ValorFinal {
   border: solid 1px #353942;
   border-radius: 10px;
@@ -100,9 +115,11 @@ select::-webkit-scrollbar {
   padding: 20px;
   cursor: pointer;
 }
+
 .primeiroSelect:hover {
   border: solid 2px #c7ccd8;
 }
+
 .segundoSelect:hover {
   border: solid 2px #c7ccd8;
 }
@@ -113,6 +130,7 @@ select::-webkit-scrollbar {
   transition: all;
   border: solid 2px #c7ccd8;
 }
+
 .ValorFinal:hover {
   transition: all;
   border: solid 2px #c7ccd8;
@@ -134,19 +152,23 @@ select::-webkit-scrollbar {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
   text-align: center;
 }
+
 .modal-overlay[hidden] {
   display: none;
 }
+
 .modal h2 {
   margin-bottom: 5px;
   color: #c7ccd8;
   font-size: 32px;
 }
+
 .modal p {
   margin-bottom: 24px;
   color: #c7ccd8;
   font-size: 20px;
 }
+
 .modal button {
   width: 100%;
   height: 44px;
@@ -160,6 +182,7 @@ select::-webkit-scrollbar {
   font-weight: 600;
   cursor: pointer;
 }
+
 .modal button:hover {
   color: #ffffff;
 }
