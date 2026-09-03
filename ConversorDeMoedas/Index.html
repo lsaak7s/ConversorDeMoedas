@@ -11,18 +11,26 @@
 
 <body class="all">
 
+
     <main class="container">
 
-        <h1 class="titulo">Conversor de Moedas</h1>
-        <h2 class="tituloOrigem">Origem</h2>
+
+        <h1 class="tituloPrincipal">Veja a realidade</h1>
+        <p class="tituloReal">1 Real Brasileiro E igual a </p>
+        <h2 class="titulo">0.18 Dólar Americano</h2>
+
+
+
+        <!-- <h2 class="tituloOrigem">Origem</h2>-->
 
         <div class="Origem">
 
             <!-- O JavaScript coloca todas as moedas aqui. -->
-            <section class="labelValor">
-                <p id="moedaOrigem" class="moeda">Moeda de origem</p>
-                <input id="inputValor" class="inseriValor" type="number" min="0" step="0.01" placeholder="Origem" />
-            </section>
+
+            <!--<p id="moedaOrigem" class="moeda">Moeda de origem</p>-->
+            <input id="inputOrigem" class="inseriValor" type="number" min="0" step="0.01" placeholder="Origem" />
+
+
 
             <div class="moeda">
 
@@ -35,16 +43,17 @@
 
         </div>
 
-        <h2 class="tituloDestino">Destino</h2>
+        <!--<h2 class="tituloDestino">Destino</h2> <p id="valueFinal" class="ValorFinal">0</p>-->
 
         <div class="Destino">
 
             <section class="labelValor">
-                <p id="MoedaDestino" class="moeda">Moeda de destino</p>
-                <p id="valueFinal" class="ValorFinal">0</p>
+                <p id="valueFinal" class="ValorFinal">Destino</p>
             </section>
 
+
             <div class="moeda">
+
 
                 <select id="SelectDestino" class="segundoSelect">
                     <option value="">Carregando moedas...</option>
@@ -53,8 +62,6 @@
             </div>
 
         </div>
-
-        <button id="buttonConverter" class="converterButton" type="button"> Converter</button>
 
 
     </main>

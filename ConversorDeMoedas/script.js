@@ -7,12 +7,9 @@ const moedav1 = document.getElementById("moedaOrigem");
 const moedav2 = document.getElementById("MoedaDestino");
 
 //INPUT Valor do User
-const inseriValor = document.getElementById("inputValor")
+const inseriValor = document.getElementById("inputOrigem")
 //const valueinUser = document.getElementById("valueinUser");
 const valueFinal = document.getElementById("valueFinal");
-
-//BUTTON
-const buttonConverter = document.getElementById("buttonConverter");
 
 const modalErro = document.getElementById("modalErro");
 const mensagemErro = document.getElementById("mensagemErro");
@@ -124,7 +121,7 @@ async function carregarMoedas() {
 function updateName() {
     moedav1.textContent = primeiroSelect.options[primeiroSelect.selectedIndex].textContent;
     moedav2.textContent = segundoSelect.options[segundoSelect.selectedIndex].textContent;
-    converterValores()
+    
 
 }
 
@@ -183,6 +180,7 @@ async function converterValores() {
         const calc = (value * feesOrigin) / feesDestination;
         //Aqui ele estar formatando a moeda
         valueFinal.textContent = formatar(calc, destination);
+        converterValores()
 
     }//Se tiver erro o catch manda
     catch {
@@ -204,6 +202,6 @@ function formatar(value, selfMade) {
 //Aqui são os eventos
 primeiroSelect.addEventListener("change", updateName);
 segundoSelect.addEventListener("change", updateName);
-buttonConverter.addEventListener("click", converterValores);
+inseriValor.addEventListener("input", converterValores);
 //Aqui ele carrega a function que busca os valores da api
 carregarMoedas();
