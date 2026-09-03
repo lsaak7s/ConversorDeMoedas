@@ -10,53 +10,66 @@
 </head>
 
 <body class="all">
-    <img class="logo" src="./assets/logo.gif" alt="Logo do Conversor de Moedas" />
-
     <main class="container">
-        <label class="select">
-            Conversor <b>de</b>
-            <select id="primeiroSelect1" class="Selectoption">
-                <option value="real">R$ Real Brasileiro</option>
-                <option value="libra">£ Libra Esterlina</option>
-                <option value="dolar">US$ Dólar Americano</option>
-                <option value="euro">€ Euro Europeu</option>
+
+        <h1 class="titulo">Conversor de Moedas</h1>
+        <h2 class="tituloOrigem">Origem</h2>
+
+        <label class="Origem">
+
+            <!-- O JavaScript coloca todas as moedas aqui. -->
+
+            <section class="moedaOrigem">
+
+                <label class="divResultado">
+                    <input id="inseriValor" class="inseriValor" type="number" min="0" step="0.01"
+                        placeholder="Digite o valor" />
+                </label>
+
+
+            </section>
+
+            <select id="primeiroSelect1" class="PrimeiroSelect">
+                <option class="Selectoption" value="">Carregando moedas...</option>
             </select>
+
         </label>
-        <h1></h1>
-        <label class="select">
-            Conversor <b>de</b>
-            <select id="segundoSelect2" class="Selectoption">
-                <option value="dolar">US$ Dólar Americano</option>
-                <option value="real">R$ Real Brasileiro</option>
-                <option value="euro">€ Euro Europeu</option>
-                <option value="libra">£ Libra Esterlina</option>
+
+        <h2 class="tituloDestino">Destino</h2>
+
+        <label class="Destino">
+
+            <section class="moedaDestino">
+
+                <div class="divResultado">
+                    <p id="moedav2" class="moeda">Moeda de destino</p>
+                    <p id="valueFinal" class="resultadovalor">0,00</p>
+                </div>
+            </section>
+
+            <!-- O JavaScript coloca todas as moedas aqui também. -->
+            <select id="segundoSelect2" class="segundoSelect">
+                <option class="Selectoption" value="">Carregando moedas...</option>
             </select>
+
         </label>
 
-        <label class="valor">
-            Valor:
-            <input id="inseriValor" class="inseriValor" type="number" placeholder=" R$ 10.000.00" />
-        </label>
+        <button id="buttonConverter" class="converterButton" type="button"> Converter</button>
 
-        <button id="buttonConverter" class="converterButton">Converter</button>
 
-        <section class="resultado">
-            <div class="divResultado">
-                <img id="primeiraImg" src="./assets/BR.png" class="imgpaiz" class="#bandeira" />
-                <p id="moedav1" class="moeda" class="#nomeMoeda">Real</p>
-                <p id="valueinUser" class="resultadovalor" class="#cotacao">R$ 0,00</p>
-            </div>
-
-            <img class="indicador" src="./assets/Vector.png" />
-
-            <div class="divResultado">
-                <img id="segundaImg" class="imgpaiz" class="#bandeira" src="./assets/EUA.png" />
-                <p id="moedav2" class="moeda" class="#nomeMoeda">Dólar</p>
-                <p id="valueFinal" class="resultadovalor" class="#cotacao">US$ 0,00</p>
-            </div>
-        </section>
     </main>
 </body>
+<!-- <div id="modalErro" class="modal-overlay" hidden>
+    <div class="modal">
+        <h2>Atenção</h2>
+
+        <p id="mensagemErro"></p>
+
+        <button id="fecharModal" type="button">
+            Entendi
+        </button>
+    </div>
+    </div>-->
 
 <script src="script.js"></script>
 
