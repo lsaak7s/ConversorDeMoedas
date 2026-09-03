@@ -11,14 +11,10 @@
 select::-webkit-scrollbar {
   display: none;
 }
-input::-webkit-scrollbar-button {
-  display: none;
-  width: 0;
-  height: 0;
-}
 
 .all {
   background-color: #22242A;
+
 }
 
 .container {
@@ -27,7 +23,6 @@ input::-webkit-scrollbar-button {
   background: #22242A;
   margin: 200px auto;
 }
-
 
 .tituloPrincipal {
   font-size: 40px;
@@ -52,8 +47,6 @@ input::-webkit-scrollbar-button {
 
 }
 
-/* */
-
 .Origem,
 .Destino {
   display: grid;
@@ -61,59 +54,65 @@ input::-webkit-scrollbar-button {
   margin: 10px 10px 10px 0px;
   color: #c7ccd8;
   height: 70px;
-  border-radius: 5px;
-  width: 90%;
+  gap:5px;
+  width: 96%;
 }
 
 ::placeholder {
   color: #c7ccd8;
 }
 
+
+
 .inseriValor {
   border: solid 1px #353942;
-  height: 70px;
+  height: 80px;
+  border-radius: 10px;
   color: #c7ccd8;
   padding: 20px;
   width: 100%;
   background-color: #22242A;
   cursor: pointer;
 }
-
 .ValorFinal {
   border: solid 1px #353942;
+  border-radius: 10px;
   display: flex;
   text-align: center;
   align-items: center;
-  height: 70px;
+  height: 80px;
   padding: 20px;
   width: 100%;
   background-color: #22242A;
   cursor: pointer;
 }
+
+
 
 .primeiroSelect,
 .segundoSelect {
+  border-radius: 10px;
   color: #f8f4f4;
   border: solid 1px #353942;
-  height: 70px;
+  height: 80px;
   width: 100%;
   background-color: #22242A;
   padding: 20px;
   cursor: pointer;
 }
-
 .primeiroSelect:hover {
   border: solid 2px #c7ccd8;
 }
-
 .segundoSelect:hover {
   border: solid 2px #c7ccd8;
 }
 
+
+
 .inseriValor:hover {
+  transition: all;
   border: solid 2px #c7ccd8;
 }
-
 .ValorFinal:hover {
   transition: all;
   border: solid 2px #c7ccd8;
@@ -121,77 +120,46 @@ input::-webkit-scrollbar-button {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-.modal-overlay {
+/*Mensagen Error*/
+.modal {
+  position: absolute;
   position: fixed;
-  inset: 0;
-  z-index: 1000;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.65);
+  bottom: 50%;
+  left: 13%;
+  width: 250px;
+  max-width: 380px;
+  padding: 10px;
+  background: #353942;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
-
 .modal-overlay[hidden] {
   display: none;
 }
-
-.modal {
-  width: 100%;
-  max-width: 380px;
-  padding: 28px;
-
-  background: #ffffff;
-  border-radius: 18px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-
-  text-align: center;
-}
-
 .modal h2 {
-  margin-bottom: 12px;
-  color: #7a0dff;
-  font-size: 24px;
+  margin-bottom: 5px;
+  color: #c7ccd8;
+  font-size: 32px;
 }
-
 .modal p {
   margin-bottom: 24px;
-  color: #333333;
-  font-size: 16px;
+  color: #c7ccd8;
+  font-size: 20px;
 }
-
 .modal button {
   width: 100%;
   height: 44px;
 
   border: none;
   border-radius: 10px;
-  background: #7a0dff;
-  color: #ffffff;
+  background: #22242A;
+  color: #c7ccd8;
 
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 600;
   cursor: pointer;
 }
-
 .modal button:hover {
-  background: #6200d6;
-}*/
+  color: #ffffff;
+}

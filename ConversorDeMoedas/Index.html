@@ -11,41 +11,45 @@
 
 <body class="all">
 
+    <section id="modalErro" hidden class="modal">
+
+        <div class="modal-overlay">
+
+            <h2>Atenção</h2>
+
+            <p id="mensagemErro"></p>
+
+            <button id="fecharModal" type="button">Entendi</button>
+
+        </div>
+
+    </section>
 
     <main class="container">
 
-
-        <h1 class="tituloPrincipal">Veja a realidade</h1>
+        <h1 class="tituloPrincipal">Veja a realidade,</h1>
         <p class="tituloReal">1 Real Brasileiro E igual a </p>
         <h2 class="titulo">0.18 Dólar Americano</h2>
 
-
-
-        <!-- <h2 class="tituloOrigem">Origem</h2>-->
-
         <div class="Origem">
 
-            <!-- O JavaScript coloca todas as moedas aqui. -->
+            <!--ORIGEM-->
 
-            <!--<p id="moedaOrigem" class="moeda">Moeda de origem</p>-->
             <input id="inputOrigem" class="inseriValor" type="number" min="0" step="0.01" placeholder="Origem" />
 
-
-
             <div class="moeda">
-
+                <!-- O JavaScript coloca todas as moedas aqui. -->
                 <select id="selectOrigem" class="primeiroSelect">
                     <option value="">Carregando moedas...</option>
                 </select>
 
             </div>
 
-
         </div>
 
-        <!--<h2 class="tituloDestino">Destino</h2> <p id="valueFinal" class="ValorFinal">0</p>-->
-
         <div class="Destino">
+
+             <!--DESTINO-->
 
             <section class="labelValor">
                 <p id="valueFinal" class="ValorFinal">Destino</p>
@@ -54,7 +58,7 @@
 
             <div class="moeda">
 
-
+                <!-- O JavaScript coloca todas as moedas aqui. -->
                 <select id="SelectDestino" class="segundoSelect">
                     <option value="">Carregando moedas...</option>
                 </select>
@@ -63,23 +67,10 @@
 
         </div>
 
-
     </main>
+
 </body>
 
-<div id="modalErro" class="modal-overlay" hidden>
-
-    <div class="modal">
-        <h2>Atenção</h2>
-
-        <p id="mensagemErro"></p>
-
-        <button id="fecharModal" type="button">
-            Entendi
-        </button>
-    </div>
-
-</div>
 
 <script src="script.js"></script>
 

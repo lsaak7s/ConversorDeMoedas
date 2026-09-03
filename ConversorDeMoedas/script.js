@@ -13,6 +13,7 @@ const valueFinal = document.getElementById("valueFinal");
 
 const modalErro = document.getElementById("modalErro");
 const mensagemErro = document.getElementById("mensagemErro");
+
 const fecharModal = document.getElementById("fecharModal");
 
 let moedas = {};
@@ -149,13 +150,15 @@ async function findRealFees(currencyCode) {
 }
 
 
-function mostrarErro(mensagem) {
+function mostrarErro(mensagem){
     mensagemErro.textContent = mensagem;
     modalErro.hidden = false;
+    converterValores()
 }
 
 function esconderErro() {
     modalErro.hidden = true;
+    converterValores()
 }
 
 fecharModal.addEventListener("click", esconderErro);
@@ -187,6 +190,7 @@ async function converterValores() {
         mostrarErro(
             "Não foi possível obter a cotação dessa moeda neste momento."
         );
+        
 
     }
 
