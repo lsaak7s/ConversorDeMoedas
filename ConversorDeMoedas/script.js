@@ -1,17 +1,18 @@
 //Se Precisa ter interação Guarde em uma Variável
 //Primeira moeda
-const primeiroSelect = document.getElementById("primeiroSelect1");
-const moedav1 = document.getElementById("moedav1");
-//Segunda moeda 
-const segundoSelect = document.getElementById("segundoSelect2");
-//Segunda moeda
-const moedav2 = document.getElementById("moedav2");
+const primeiroSelect = document.getElementById("selectOrigem");
+const segundoSelect = document.getElementById("SelectDestino");
+
+const moedav1 = document.getElementById("moedaOrigem");
+const moedav2 = document.getElementById("MoedaDestino");
+
+//INPUT Valor do User
+const inseriValor = document.getElementById("inputValor")
+//const valueinUser = document.getElementById("valueinUser");
+const valueFinal = document.getElementById("valueFinal");
+
 //BUTTON
 const buttonConverter = document.getElementById("buttonConverter");
-//INPUT Valor do User
-const inseriValor = document.getElementById("inseriValor")
-const valueinUser = document.getElementById("valueinUser");
-const valueFinal = document.getElementById("valueFinal");
 
 const modalErro = document.getElementById("modalErro");
 const mensagemErro = document.getElementById("mensagemErro");
@@ -92,7 +93,7 @@ async function carregarMoedas() {
                 selfMadeMoney,
                 name: nameMoney
             };
-        })
+        })//Aqui estamos deicando em ordem alfabetica
         .sort((a, b) => a.name.localeCompare(b.name));
 
     // O BRL precisa ser inserido porque não existe uma cotação BRL-BRL.
@@ -181,7 +182,6 @@ async function converterValores() {
         //Matematica👍
         const calc = (value * feesOrigin) / feesDestination;
         //Aqui ele estar formatando a moeda
-        valueinUser.textContent = formatar(value, origin);
         valueFinal.textContent = formatar(calc, destination);
 
     }//Se tiver erro o catch manda
@@ -191,11 +191,8 @@ async function converterValores() {
         );
 
     }
+
 }
-
-
-
-
 
 //Aqui ele formata os valores para parecer com moeda
 function formatar(value, selfMade) {

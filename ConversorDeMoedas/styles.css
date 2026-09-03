@@ -1,79 +1,85 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Rubik", sans-serif;
+  font-family: "Kumbh Sans", sans-serif;
   outline: none;
-  gap: 20px;
 }
 
 .all {
-  background-color: #cc7070;
+  background-color: #22242A;
   min-height: 100vh;
 }
 
-.titulo {
-  font-size: 44px;
-  font-weight: 600;
-  color: #000000;
-  text-align: center;
-  margin-bottom: 20px;
-  width: 100%;
-}
-
-.tituloOrigem{
-  font-size: 26px;
-  font-weight: 200;
-  width: 100px;
-}
-
-.moedaOrigem {
-  display: inline-block;
-  width: 40%;
-  background-color: #563131;
-}
-
-.tituloDestino {
-  font-size: 26px;
-  font-weight: 200;
-  width: 100px;
-}
-
-.moedaDestino {
-  display: inline-block;
-  width: 40%;
-  background-color: #563131;
-}
-
-.PrimeiroSelect {
-  display: inline-block;
-  width: 59%;
-  background-color: #ffffff;
-}
-
-.segundoSelect {
-  display: inline-block;
-  width: 59%;
-  background-color: #ffffff;
-}
-
 .container {
-  display: flex;
-  flex-direction: column;
+  display: block;
   height: 500px;
   width: 1000px;
   border-radius: 15px;
-  background: #ffffff;
+  background: #2a354e;
   margin: 200px auto;
-  padding: 4px 24px 23px;
+}
+
+.Origem, .Destino {
+  height: 70px;
+  width: 80%;
+  background-color: #000000;
 }
 
 
+.titulo {
+  font-size: 80px;
+  font-weight: 400;
+  color: #000000;
+  text-align: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.inseriValor,
+.ValorFinal {
+  display: inline-block;
+  height: 70px;
+  width: 40%;
+  background-color: #1fa94f;
+  cursor: pointer;
+}
+
+.primeiroSelect, .segundoSelect {
+  display: inline-block;
+  height: 70px;
+  width: 100%;
+  background-color: #25afb9;
+  cursor: pointer;
+}
 
 
+.converterButton {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  width: 0px auto;
+  background-color: #ccdc73;
+  font-size: 30px;
+  font-weight: 600;
+  cursor: pointer;
+}
 
+
+.moeda {
+  display: inline-block;
+
+  background-color: #ccdc73;
+  width: 50%;
+
+}
+.label {
+  display: inline-block;
+  
+}
 
 
 
@@ -89,73 +95,6 @@
 
 
 /*
-.valor {
-  display: block;
-  font-size: 14px;
-  font-weight: 400;
-  color: #000000;
-  appearance: none;
-}
-
-.inseriValor {
-  background-color: #ffffff;
-  border: 1px solid #000000;
-  width: 100%;
-  padding: 0 10px;
-  height: 40px;
-  border-radius: 15px;
-  margin-bottom: 20px;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.converterButton {
-  background-color: #000000;
-  color: #ffffff;
-  width: 100%;
-  height: 40px;
-  border-radius: 15px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.resultado {
-  border: 1px solid #000000;
-  border-radius: 15px;
-  width: 100%;
-  display: block;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.divResultado {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  padding: 20px;
-
-}
-
-.moeda {
-  font-size: 14px;
-  font-weight: 400;
-  color: #000000;
-}
-
-.resultadovalor {
-  font-size: 16px;
-  font-weight: 600;
-  color: #000000;
-}
-
-.indicador {
-  width: 65px;
-  height: auto;
-  display: block;
-  margin: -10px auto;
-}
 
 .modal-overlay {
   position: fixed;
