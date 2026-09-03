@@ -18,8 +18,14 @@ O projeto foi desenvolvido para praticar manipulação do DOM, eventos, funçõe
 
 ---
 
-🖼️ Preview
+🖼️ Preview V2
 <img width="1907" height="981" alt="Captura de tela 2026-09-03 172719" src="https://github.com/user-attachments/assets/d90fc8c5-6dfd-4709-adb5-bc9dad98d28a" />
+
+---
+
+🖼️ Preview V1
+
+<img width="1232" height="1001" alt="image" src="https://github.com/user-attachments/assets/7458042f-73b0-4dd2-bf5e-020c34898244" />
 
 ---
 
@@ -51,12 +57,6 @@ cd conversor-moedas
 ```
 
 Abra o arquivo **index.html** no navegador ou publique o projeto utilizando o GitHub Pages.
-
----
-
-## 🖼️ Preview
-
-<img width="1232" height="1001" alt="image" src="https://github.com/user-attachments/assets/7458042f-73b0-4dd2-bf5e-020c34898244" />
 
 ---
 
