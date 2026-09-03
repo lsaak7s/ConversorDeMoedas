@@ -17,6 +17,11 @@ O projeto foi desenvolvido para praticar manipulação do DOM, eventos, funçõe
 
 ---
 
+🖼️ Preview
+<img width="1907" height="981" alt="Captura de tela 2026-09-03 172719" src="https://github.com/user-attachments/assets/d90fc8c5-6dfd-4709-adb5-bc9dad98d28a" />
+
+---
+
 ## ✨ Funcionalidades
 
 * 💱 Conversão entre Real (BRL), Dólar (USD), Euro (EUR) e Libra Esterlina (GBP)
