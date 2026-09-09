@@ -19,7 +19,8 @@ O projeto foi desenvolvido para praticar manipulação do DOM, eventos, funçõe
 ---
 
 🖼️ Preview V2
-<img width="1907" height="981" alt="Captura de tela 2026-09-03 172719" src="https://github.com/user-attachments/assets/d90fc8c5-6dfd-4709-adb5-bc9dad98d28a" />
+<img width="1896" height="1039" alt="image" src="https://github.com/user-attachments/assets/2b58dcc5-9f23-4d0c-a933-ac611e66b613" />
+
 
 ---
 
